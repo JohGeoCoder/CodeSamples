@@ -106,3 +106,32 @@ public abstract class GenericFormProcessor<T> where T : BaseFormModel
 
 	public abstract FormProcessingResponse Process();
 }
+
+
+///
+/// Sample use of the CRM Forms Service
+/// Abstraction really pays off
+///
+public void SendEmail()
+{
+	//...
+	var priceListModel = new PriceListFormsModel(recipientEmail)
+	{
+		DateBlocks = priceListDisplayData.DateBlocks,
+		Agency = priceListDisplayData.Agency,
+		Product = priceListDisplayData.Product,
+		WholesaleSalesType = wholesaleSalesType
+	};
+
+	var serviceData = new CrmServiceData
+	{
+		UserId = BrandConfig.OperatorOpCode,
+		ClientId = BrandConfig.ClientId,
+		OperCode = BrandConfig.OperCode,
+		SellerId = BrandConfig.SellerId,
+		SupplierId = BrandConfig.SupplierId
+	};
+	
+	var formEmail = CRMFormsService.ProcessGenericForm(priceListModel, FormActivityType.FormEmailed, serviceData);
+	//...
+}
