@@ -1,7 +1,7 @@
 # Code samples from John George
 A collection of code samples, authored by me, that I am proud of.
 
-The code samples in this folder were been authored by John George of NEPA Web Solutions LLC.
+The code samples in this folder were been authored by John George.
 
 Additional contributors to the code samples are documented.
 
