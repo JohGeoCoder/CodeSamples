@@ -1,5 +1,5 @@
 -- =============================================
--- Author:		John George
+-- Author:	John George
 -- Create date: 2017/02/13
 
 -- Modify Date: 5/11/2017
@@ -353,7 +353,7 @@ BEGIN
 	INNER JOIN dbo.purchaser
 		ON purchaser.purchaser_id = filtered_purchase.purchaser_id AND purchaser.agency_id IS NOT NULL
     INNER JOIN dbo.person purchaser_person
-			ON purchaser_person.person_id = purchaser.person_id	
+		ON purchaser_person.person_id = purchaser.person_id	
 	INNER JOIN dbo.agency
 		ON agency.agency_id = purchaser.agency_id		
 	INNER JOIN dbo.purchase_line_item
@@ -363,10 +363,8 @@ BEGIN
 	LEFT JOIN dbo.offer offer
 		ON offer.offer_id = purchase_line_item.offer_id
 	LEFT JOIN dbo.person passenger_person
-			ON passenger_person.person_id = filtered_purchase.received_by_person_id
-	--New Code
+		ON passenger_person.person_id = filtered_purchase.received_by_person_id
 	WHERE @MethodOfDeliveryCode IS NULL OR filtered_purchase.mod LIKE @MethodOfDeliveryCode
-	--End New Code
 END
 
 
