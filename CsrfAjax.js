@@ -110,7 +110,7 @@ OrderEntry.Helpers.CsrfAjax(OrderEntry.Endpoints.GetAccountAndContact, getAccoun
 			console.log("GetAccountAndContact: null return data");
 		}            
 	})
-	.fail(function(data){
+	.fail(function(jqXHR, textStatus, errorThrown){
 		if (!!console) console.log("GetAccountAndContact: failure");
 	});
 
