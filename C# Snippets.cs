@@ -63,14 +63,14 @@ protected string ValidateAndGetErrorMessage(string errorMessagePrefix)
 
 	//Return an error message constructed from all validation errors.
 	return errorMessage
-			+ string.Join(" - ", 
-				ModelState.Values.SelectMany(s => s.Errors)
-				.Select(err => err?.ErrorMessage)
-				.Union(ModelState.Values.SelectMany(s => s.Errors)
-					.Select(err => err?.Exception?.Message)
-				)
-				.Where(message => !string.IsNullOrWhiteSpace(message))
-			);
+		+ string.Join(" - ", 
+			ModelState.Values.SelectMany(s => s.Errors)
+			.Select(err => err?.ErrorMessage)
+			.Union(ModelState.Values.SelectMany(s => s.Errors)
+				.Select(err => err?.Exception?.Message)
+			)
+			.Where(message => !string.IsNullOrWhiteSpace(message))
+		);
 }
 
 public IEnumerable<TimeCategoryInfo> GetTimeCategoryInfo(int? productId, int? accountId, DateTime? offerDate)
