@@ -26,7 +26,7 @@
 
 -- Modify Date:	02/12/2018
 -- Modifier: 	Peter Prigge
--- Description:	Removed hardcode values for Nat Geo defaults.  Made Supplier ID and an optional parameter for future multi suppliers.
+-- Description:	Removed hardcode values for [Company Name Redacted] defaults.  Made Supplier ID and an optional parameter for future multi suppliers.
 -- =============================================
 
 ALTER PROCEDURE [dbo].[wholesale_order_search] (
@@ -352,7 +352,7 @@ BEGIN
 
 	INNER JOIN dbo.purchaser
 		ON purchaser.purchaser_id = filtered_purchase.purchaser_id AND purchaser.agency_id IS NOT NULL
-    INNER JOIN dbo.person purchaser_person
+    	INNER JOIN dbo.person purchaser_person
 		ON purchaser_person.person_id = purchaser.person_id	
 	INNER JOIN dbo.agency
 		ON agency.agency_id = purchaser.agency_id		
